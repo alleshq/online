@@ -4,3 +4,10 @@ This is a simple, versatile api to which client's can make an authenticated requ
 🟢 - Online
 ⚫ - Offline
 🔴 - Error
+
+## Database
+Online uses a MariaDB database. It connects using Sequelize, and you should use the following environmental variables:
+- DB_HOST
+- DB_NAME
+- DB_USERNAME
+- DB_PASSWORD
