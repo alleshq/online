@@ -42,7 +42,7 @@ app.get("/:user", async (req, res) => {
         where: {
             user: req.params.user,
             createdAt: {
-                [Op.gte]: new Date().getTime() - 1000 * 30
+                [Op.gte]: new Date().getTime() - 1000 * 60
             }
         }
     });
