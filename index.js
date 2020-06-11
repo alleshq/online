@@ -11,7 +11,7 @@ const {Op} = require("sequelize");
 const uuid = require("uuid").v4;
 
 // Online
-app.get("/", auth, async (req, res) => {
+app.post("/", auth, async (req, res) => {
     // User auth
     if (!req.user) return res.status(401).send("🔴");
 
