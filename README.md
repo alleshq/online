@@ -3,6 +3,7 @@ This is a simple, versatile api to which client's can make an authenticated requ
 
 🟢 - Online
 ⚫ - Offline
+🔵 - Success
 🔴 - Error
 
 ## Database
