@@ -1,4 +1,16 @@
-module.exports = (req, res, next) => {
-    req.user = "00000000-0000-0000-0000-000000000000";
+const axios = require("axios");
+
+module.exports = async (req, res, next) => {
+    try {
+        req.user = (await axios.get(
+            `https://1api.alles.cx/v1/session?token=${encodeURIComponent(req.headers.authorization)}`,
+            {
+                auth: {
+                    username: process.env.ALLES_ID,
+                    password: process.env.ALLES_SECRET
+                }
+            }
+        )).data.user;
+    } catch {}
     next();
 };
