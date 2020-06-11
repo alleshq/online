@@ -35,8 +35,16 @@ app.get("/", auth, async (req, res) => {
 });
 
 // User
-app.get("/:user", (req, res) => {
-
+app.get("/:user", async (req, res) => {
+    const recent = await db.Ping.count({
+        where: {
+            user: req.params.user,
+            createdAt: {
+                [Op.gte]: new Date().getTime() - 1000 * 30
+            }
+        }
+    });
+    res.send(recent > 0 ? "🟢" : "⚫");
 });
 
 // 404
